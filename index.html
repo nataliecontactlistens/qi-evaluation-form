@@ -999,6 +999,8 @@ function setRescue(val) {
   updateScore(); updatePill('re');
 }
 
+const POWER_AUTOMATE_URL = 'https://defaultd8056e8d688b4dc79740a15f1a4496.a1.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/c79acc9c07c64033ad34fe0dfa955983/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ixs4QZwvCvrG6ogYyIvj4SFxUh9PQfAR3fhyta8svQo';
+
 function handleSubmit() {
   const active = getActive();
   if (!active.length) { alert('Please score at least one item before submitting.'); return; }
@@ -1013,6 +1015,45 @@ function handleSubmit() {
   const critFlags=Object.entries(scores).filter(([id,s])=>s.critical&&isVisible(id)&&s.pts<=40).map(([,s])=>s.label);
   const noteFields={'Active Engagement':document.getElementById('notes-ae').value,'Exploring the Situation':document.getElementById('notes-ex').value,'Safety Assessment':document.getElementById('notes-sa').value,'Imminent Risk':document.getElementById('notes-ir').value,'Rescue':document.getElementById('notes-re').value,'Collaborative Problem-Solving':document.getElementById('notes-cp').value,'Safety Planning':document.getElementById('notes-sp').value,'Wrap-Up':document.getElementById('notes-wu').value};
   const metaData={'Interaction ID':document.getElementById('interaction-id').value||'(not entered)','Counselor Name':document.getElementById('counselor-name').value||'(not entered)','Supervisor Name':document.getElementById('supervisor-name').value||'(not entered)','Evaluation Type':document.getElementById('eval-type').value,'Submission Date':dateStr,'SI Present':flags.si?'Yes':'No','Imminent Risk':flags.imminent?'Yes':'No','Rescue Initiated':flags.rescue?'Yes':'No','Overall Score':avg.toFixed(1),'Total Items Scored':String(active.length),'Critical Items Flagged':critFlags.length?critFlags.join('; '):'None'};
+
+  // Send to Power Automate
+  const payload = {
+    submissionDate: dateStr,
+    counselorName: document.getElementById('counselor-name').value||'',
+    supervisorName: document.getElementById('supervisor-name').value||'',
+    interactionId: document.getElementById('interaction-id').value||'',
+    evalType: document.getElementById('eval-type').value,
+    siPresent: flags.si?'Yes':'No',
+    imminentRisk: flags.imminent?'Yes':'No',
+    rescueInitiated: flags.rescue?'Yes':'No',
+    overallScore: avg.toFixed(1),
+    itemsScored: String(active.length),
+    criticalFlags: critFlags.length?critFlags.join('; '):'None',
+    score_ae: secScores['ae']?secScores['ae'].toFixed(1):'',
+    score_ex: secScores['ex']?secScores['ex'].toFixed(1):'',
+    score_sa: secScores['sa']?secScores['sa'].toFixed(1):'',
+    score_ir: secScores['ir']?secScores['ir'].toFixed(1):'',
+    score_re: secScores['re']?secScores['re'].toFixed(1):'',
+    score_cp: secScores['cp']?secScores['cp'].toFixed(1):'',
+    score_sp: secScores['sp']?secScores['sp'].toFixed(1):'',
+    score_wu: secScores['wu']?secScores['wu'].toFixed(1):'',
+    notes_ae: document.getElementById('notes-ae').value||'',
+    notes_ex: document.getElementById('notes-ex').value||'',
+    notes_sa: document.getElementById('notes-sa').value||'',
+    notes_ir: document.getElementById('notes-ir').value||'',
+    notes_re: document.getElementById('notes-re').value||'',
+    notes_cp: document.getElementById('notes-cp').value||'',
+    notes_sp: document.getElementById('notes-sp').value||'',
+    notes_wu: document.getElementById('notes-wu').value||''
+  };
+  fetch(POWER_AUTOMATE_URL, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){console.log('Submitted to Power Automate successfully');}
+    else{console.warn('Power Automate response:',r.status);}
+  }).catch(e=>console.warn('Power Automate error:',e));
   const container=document.getElementById('summary-container');
   container.innerHTML='';
   const panel=document.createElement('div'); panel.className='summary';
