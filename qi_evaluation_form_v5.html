@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>988 Convo Evaluation Form — CONTACT Care Line</title>
+
+
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#52B8C1;--navy:#063F5E;--bg:#EFF4F5;--white:#fff;--text:#063F5E;--text2:#6C9AA2;--border:rgba(6,63,94,.10);--border2:rgba(6,63,94,.20);--red:#E24B4A;--orange:#BA7517;--green:#3B6D11;--r:8px;--rl:14px}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);font-size:13.5px;line-height:1.6}
+.page{max-width:800px;margin:0 auto;padding:0 1rem 9rem}
+.hdr{background:var(--navy);padding:1.6rem 2rem;margin:0 -1rem 2rem;display:flex;align-items:center;gap:1.4rem}
+.hdr-text h1{font-family:Arial,sans-serif;font-weight:900;font-size:18px;color:#fff;margin-bottom:2px}
+.hdr-text p{font-family:Arial,sans-serif;font-weight:300;font-size:11.5px;color:var(--teal)}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
+.fl{display:block;font-size:10px;color:var(--text2);margin-bottom:3px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+input[type=text],select,textarea{width:100%;padding:8px 11px;font-size:12.5px;font-family:Arial,sans-serif;border:1.5px solid var(--border2);border-radius:var(--r);background:var(--white);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(82,184,193,.18)}
+textarea{min-height:64px;resize:vertical;background:var(--bg);margin-top:5px}
+.sec{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.3rem 1.5rem;margin-bottom:1rem}
+.sec.hidden{display:none!important}
+.sec-hdr{display:flex;align-items:center;gap:8px;margin-bottom:.6rem;padding-bottom:10px;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.sec-title{font-family:Arial,sans-serif;font-weight:900;font-size:13px;color:var(--navy);letter-spacing:.03em;text-transform:uppercase}
+.sec-desc{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:1rem;font-style:italic}
+.badge{font-size:9.5px;padding:2px 7px;border-radius:20px;font-weight:800;letter-spacing:.04em;white-space:nowrap}
+.badge-crit{background:#FFEBEB;color:#a32d2d}
+.badge-cond{background:#FFF5E0;color:#854F0B}
+.badge-auto{background:#eaf5e4;color:#3B6D11}
+.reveal{font-size:10.5px;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:4px;font-weight:700}
+.item{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.item:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.item.hidden{display:none!important}
+.item-num{font-size:11px;color:var(--text2);font-weight:800;margin-bottom:3px}
+.item-label{font-size:13px;margin-bottom:4px;color:var(--text);font-weight:700;line-height:1.4}
+.item-hint{font-size:11.5px;color:var(--text2);font-weight:400;line-height:1.45;margin-bottom:8px}
+.crit-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:5px;vertical-align:middle}
+.rg{display:flex;gap:5px;flex-wrap:wrap}
+.rb{border:1.5px solid var(--border2);background:var(--white);color:var(--text2);border-radius:6px;padding:5px 14px;font-size:11.5px;font-family:Arial,sans-serif;font-weight:600;cursor:pointer;transition:all .12s;white-space:nowrap}
+.rb:hover{border-color:var(--teal);color:var(--navy);background:#f0fbfc}
+.rb.s4{background:#e8f5e1;border-color:#639922;color:#27500A;font-weight:800}
+.rb.s3{background:#e0f3f5;border-color:var(--teal);color:#106887;font-weight:800}
+.rb.s2{background:#FFF5E0;border-color:var(--orange);color:#633806;font-weight:800}
+.rb.s1{background:#FFEBEB;border-color:var(--red);color:#791F1F;font-weight:800}
+.rb.sy{background:#e8f5e1;border-color:#639922;color:#27500A;font-weight:800}
+.rb.sn{background:#FFEBEB;border-color:var(--red);color:#791F1F;font-weight:800}
+.tog-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border);margin-top:.8rem;gap:12px}
+.tog-lbl{font-size:11.5px;color:var(--text2);font-weight:700}
+.tog-sw{display:flex;gap:5px;flex-shrink:0}
+.tog-btn{padding:4px 13px;border-radius:20px;font-size:11px;font-weight:800;font-family:Arial,sans-serif;border:1.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--text2);transition:all .12s}
+.tog-btn.on-no{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tog-btn.on-yes{background:var(--red);color:#fff;border-color:var(--red)}
+.notes-wrap{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--border)}
+.sp{position:fixed;bottom:0;left:0;right:0;background:var(--navy);padding:.85rem 1.4rem;z-index:100;border-top:3px solid var(--teal)}
+.sp-inner{max-width:800px;margin:0 auto}
+.sp-row{display:flex;align-items:center;gap:14px;margin-bottom:7px}
+.sp-num{font-family:Arial,sans-serif;font-weight:900;font-size:36px;line-height:1;min-width:90px;color:#fff}
+.sp-lbl{font-size:9px;color:var(--teal);font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.sp-bar-wrap{flex:1}
+.sp-bar-bg{background:rgba(255,255,255,.12);border-radius:4px;height:9px;overflow:hidden}
+.sp-bar-fill{height:100%;border-radius:4px;transition:width .35s,background .35s;width:0%;background:var(--teal)}
+.sp-meta{font-size:10.5px;color:var(--text2);margin-top:4px}
+.flags-wrap{margin-bottom:7px}
+.flag-item{display:flex;align-items:center;gap:7px;padding:4px 9px;background:rgba(226,75,74,.18);border-radius:var(--r);margin-bottom:3px;font-size:10.5px;color:#ffb3b3;font-weight:800}
+.sub-btn{width:100%;padding:10px;font-size:12.5px;font-weight:800;font-family:Arial,sans-serif;letter-spacing:.04em;background:var(--teal);border:none;border-radius:var(--r);cursor:pointer;color:var(--navy);transition:all .12s}
+.sub-btn:hover{background:#63cad4}
+.summary{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.2rem 1.4rem;margin-top:1rem}
+.summary h3{font-family:Arial,sans-serif;font-weight:900;font-size:13px;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid var(--border);padding-bottom:8px}
+.sum-head{font-size:10px;font-weight:800;color:var(--text2);letter-spacing:.07em;text-transform:uppercase;margin:12px 0 4px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border);gap:8px}
+.sum-row:last-of-type{border-bottom:none}
+.sum-key{color:var(--text2);flex:1}
+.sum-val{font-weight:800;color:var(--text)}
+.sh{color:#27500A}.sm{color:#633806}.sl{color:#a32d2d}
+.act{display:flex;gap:8px;margin-top:12px}
+.copy-btn,.csv-btn{flex:1;padding:9px;font-size:11.5px;font-weight:800;font-family:Arial,sans-serif;border-radius:var(--r);cursor:pointer;transition:all .12s}
+.copy-btn{background:var(--bg);border:1.5px solid var(--border2);color:var(--text2)}
+.copy-btn:hover{border-color:var(--teal);color:var(--navy)}
+.csv-btn{background:var(--navy);border:1.5px solid var(--navy);color:#fff}
+.csv-btn:hover{background:#106887}
+.ok-msg{font-size:10.5px;color:var(--green);font-weight:800;margin-top:6px;text-align:center;min-height:16px}
+.pill{margin-left:auto;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;display:none}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hdr">
+  <div class="hdr-text">
+    <h1>988 Convo Evaluation Form for Supervisors</h1>
+    <p>CONTACT Care Line &nbsp;·&nbsp; 988 Lifeline &nbsp;·&nbsp; Quality Improvement &nbsp;·&nbsp; Updated April 2026</p>
+  </div>
+</div>
+<div class="meta-grid">
+  <div><label class="fl">Counselor name</label><input type="text" id="counselor-name" placeholder="First Last"></div>
+  <div><label class="fl">Supervisor / Evaluator name</label><input type="text" id="supervisor-name" placeholder="First Last"></div>
+  <div><label class="fl">Interaction ID</label><input type="text" id="interaction-id" placeholder="Interaction ID or label"></div>
+  <div><label class="fl">Evaluation type</label>
+    <select id="eval-type">
+      <option>Standard QI</option>
+      <option>Silent Monitoring</option>
+      <option>Trainee / QRP</option>
+      <option>Weekly Feedback</option>
+      <option>Probationary Review</option>
+    </select>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <span class="sec-title">Active Engagement</span>
+    
+    <span class="pill badge" id="pill-ae"></span>
+  </div>
+  
+  <p class="sec-desc">Active Engagement is an essential component of a strong alliance with chat visitors. Conversations displaying good contact include (but are not limited to): expressions of empathy, validating and/or reflecting a chat visitor's feelings, creating a caring and safe climate, staying engaged and present with the chat visitor, using patience, or using questions and reflections to increase understanding of the chat visitor's situation.</p>
+  <div class="item" id="iw-ae5">
+  <div class="item-num">5.</div>
+  <div class="item-label">Was non-judgmental, accepting, and respectful</div>
+  <div class="item-hint">Higher Scoring: Counselor met the visitor where they were without criticism or correction. Language was inclusive, affirming, and emotionally safe. Lower Scoring: Responses may have implied blame, disbelief, or condescension (e.g., "Well, at least…" or "Why didn't you just…").</div>
+  <div class="rg" id="rg-ae5">
+  <button class="rb" onclick="rate('ae5',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae5',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae5',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae5',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae6">
+  <div class="item-num">6.</div>
+  <div class="item-label">Natural use of engagement skills</div>
+  <div class="item-hint">Higher Scoring: Counselor used reflections, affirmations, and empathy in a way that felt conversational—not mechanical. Skills were integrated smoothly, not just applied as checkboxes. Lower Scoring: Counselor skipped or rarely used reflective, affirming, or emotionally responsive statements.</div>
+  <div class="rg" id="rg-ae6">
+  <button class="rb" onclick="rate('ae6',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae6',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae6',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae6',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae7">
+  <div class="item-num">7.</div>
+  <div class="item-label">Stayed engaged and in the present</div>
+  <div class="item-hint">Higher Scoring: Counselor was responsive to what was being said moment-to-moment. They didn't ignore or brush past emotional disclosures or shift topics abruptly. Lower Scoring: Counselor repeated questions, ignored key disclosures, or shifted topics without acknowledgment. Counselor reused the same phrasing or engagement tool multiple times, making the interaction feel stale or unnatural.</div>
+  <div class="rg" id="rg-ae7">
+  <button class="rb" onclick="rate('ae7',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae7',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae7',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae7',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae8">
+  <div class="item-num">8.</div>
+  <div class="item-label">Used a warm and genuine tone</div>
+  <div class="item-hint">Higher Scoring: Counselor conveyed care through their voice or written tone, avoiding overly clinical or scripted responses. Lower Scoring: Responses felt cold, overly formal, or emotionally flat—visitor may have felt like a "case" instead of a person.</div>
+  <div class="rg" id="rg-ae8">
+  <button class="rb" onclick="rate('ae8',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae8',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae8',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae8',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae9">
+  <div class="item-num">9.</div>
+  <div class="item-label">Matched the visitor's language and pace</div>
+  <div class="item-hint">Higher Scoring: Counselor mirrored the visitor's energy and word choice where appropriate (e.g., using casual, youth-friendly language when chatting with a teen, or slowing down with someone overwhelmed). Lower Scoring: Counselor's style may have felt out of sync with the visitor.</div>
+  <div class="rg" id="rg-ae9">
+  <button class="rb" onclick="rate('ae9',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae9',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae9',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae9',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae10">
+  <div class="item-num">10.</div>
+  <div class="item-label">Demonstrated empathy</div>
+  <div class="item-hint">Higher Scoring: Counselor recognized and reflected emotional experiences: "That sounds incredibly painful." or "I can hear how heavy that's been for you." Lower Scoring: Counselor failed to acknowledge emotional content or responded in a way that felt procedural.</div>
+  <div class="rg" id="rg-ae10">
+  <button class="rb" onclick="rate('ae10',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae10',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae10',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae10',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae11">
+  <div class="item-num">11.</div>
+  <div class="item-label">Reflected back visitor's feelings</div>
+  <div class="item-hint">Higher Scoring: Counselor named the emotions they heard, helping the visitor feel understood. "It sounds like you've been carrying a lot of fear and guilt." Lower Scoring: Language sounded copied or templated rather than tailored to the visitor's unique experience.</div>
+  <div class="rg" id="rg-ae11">
+  <button class="rb" onclick="rate('ae11',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae11',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae11',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae11',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae12">
+  <div class="item-num">12.</div>
+  <div class="item-label">Provided appropriate validation</div>
+  <div class="item-hint">Counselor affirmed the visitor's experience without minimizing or fixing: "It makes sense you're feeling that way." or "That's a really normal reaction to something so hard."</div>
+  <div class="rg" id="rg-ae12">
+  <button class="rb" onclick="rate('ae12',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae12',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae12',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae12',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ae13">
+  <div class="item-num">13.</div>
+  <div class="item-label">Used self-disclosure only when appropriate</div>
+  <div class="item-hint">Higher Scoring: If used, counselor's self-disclosure was brief, relevant, and focused on supporting the visitor, not shifting focus. Lower Scoring: Counselor shared too much about themselves, derailing the focus, or used self-disclosure as a shortcut for connection.</div>
+  <div class="rg" id="rg-ae13">
+  <button class="rb" onclick="rate('ae13',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ae13',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ae13',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ae13',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">14. Other — Active Engagement notes</label>
+    <textarea id="notes-ae" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <span class="sec-title">Exploring the Situation</span>
+    
+    <span class="pill badge" id="pill-ex"></span>
+  </div>
+  
+  <p class="sec-desc">Exploring the situation gives the chat visitors space to share what is happening that led them to reach out; what they're feeling; etc. This step includes asking open-ended questions, validating emotions, not rushing to problem-solving, and giving time for chat visitors to get it all out.</p>
+  <div class="item" id="iw-ex15">
+  <div class="item-num">15.</div>
+  <div class="item-label">Gave appropriate space for the visitor to share their experience and emotions</div>
+  <div class="item-hint">Higher Scoring: Counselor used language like "I'm here to listen—whatever feels important to share," or validated when the visitor disclosed hard truths. Lower Scoring: Counselor moved quickly without fully inviting the visitor's story. Questions felt rapid-fire or overwhelming, making the conversation feel like an interview rather than a supportive interaction.</div>
+  <div class="rg" id="rg-ex15">
+  <button class="rb" onclick="rate('ex15',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ex15',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ex15',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ex15',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ex16">
+  <div class="item-num">16.</div>
+  <div class="item-label">Did not jump prematurely to problem-solving</div>
+  <div class="item-hint">Higher Scoring: Counselor allowed space for processing before suggesting options or resources. A turning point was found before directing collaborative problem solving. Mandatories and safety assessments must be completed. Lower Scoring: Counselor offered suggestions before understanding what the visitor actually needed or wanted help with. This may sound like: "You should talk to a therapist" or "Have you tried breathing exercises?" early in the conversation.</div>
+  <div class="rg" id="rg-ex16">
+  <button class="rb" onclick="rate('ex16',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ex16',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ex16',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ex16',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ex17">
+  <div class="item-num">17.</div>
+  <div class="item-label">Identified the event or current triggers that precipitated the interaction</div>
+  <div class="item-hint">Higher Scoring: Counselor gently asked questions to understand what brought the visitor to chat today: "What's been going on lately?" or "Was there something that happened today that led you to reach out?" Lower Scoring: Counselor missed or failed to ask about what led to the visitor's distress today.</div>
+  <div class="rg" id="rg-ex17">
+  <button class="rb" onclick="rate('ex17',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ex17',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ex17',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ex17',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ex18">
+  <div class="item-num">18.</div>
+  <div class="item-label">Used questions, reflections, or other skills to deepen the relationship and understanding</div>
+  <div class="item-hint">Higher Rating: Counselor reflected feelings, paraphrased key experiences, or asked thoughtful open-ended questions like: "Can you tell me more about that?" or "So it sounds like you are upset due to the stress you are having at work, is that correct?" Lower Scoring: Counselor used generic or closed questions (e.g., "Are you sad?") without follow-up, reflection, or acknowledgment of deeper emotion.</div>
+  <div class="rg" id="rg-ex18">
+  <button class="rb" onclick="rate('ex18',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ex18',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ex18',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ex18',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ex19">
+  <div class="item-num">19.</div>
+  <div class="item-label">Explored presenting concerns</div>
+  <div class="item-hint">Higher Rating: Counselor clearly understood and reflected the core issues shared by the visitor (e.g., grief, loneliness, conflict, trauma, etc.). Their responses reflected understanding, not assumption. Lower Scoring: Counselor didn't clarify what the visitor was reaching out about or focused on surface-level content without checking what mattered most to the visitor.</div>
+  <div class="rg" id="rg-ex19">
+  <button class="rb" onclick="rate('ex19',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ex19',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ex19',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ex19',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">20. Other — Exploring the Situation notes</label>
+    <textarea id="notes-ex" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <span class="sec-title">Safety Assessment</span>
+    <span class="badge badge-crit">contains critical items</span>
+    <span class="pill badge" id="pill-sa"></span>
+  </div>
+  
+  <p class="sec-desc">Safety assessment is a tool that brings together the elements of assessment with a focus on conversation flow. Individuals are asked three screener questions early in the conversation: 1) Have you had thoughts of suicide today or in the last few days? 2) Have you done anything to hurt yourself today? A yes to any of these questions prompts the need for further assessment.</p>
+  <div class="item" id="iw-sa21">
+  <div class="item-num">21.</div>
+  <div class="item-label">Started the assessment at the right time</div>
+  <div class="item-hint">Higher Rating: Counselor asked the mandatory suicide questions within roughly 5 minutes or 5–7 messages into the conversation for chats/texts. Assessment was neither rushed nor delayed. Lower Rating: Counselor waited too long to begin risk screening or bypassed it despite signs of distress, suicidal language, or hopelessness.</div>
+  <div class="rg" id="rg-sa21">
+  <button class="rb" onclick="rate('sa21',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa21',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa21',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa21',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa22">
+  <div class="item-num">22.</div>
+  <div class="item-label">Completed thorough safety assessment</div>
+  <div class="item-hint">Higher Rating: All Four Core Principles (Desire, Intent, Capability, Buffers) were explored, using a combination of open-ended questions and clarifying follow-ups. Lower Rating: Counselor did not assess all relevant elements (e.g., skipped plan, buffers, or timeline). Assessment felt partial or surface-level.</div>
+  <div class="rg" id="rg-sa22">
+  <button class="rb" onclick="rate('sa22',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa22',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa22',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa22',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa23">
+  <div class="item-num">23.</div>
+  <div class="item-label">Supported the visitor while completing the safety assessment</div>
+  <div class="item-hint">Higher Rating: Counselor stayed warm, present, and empathetic, ensuring the visitor didn't feel interrogated or overwhelmed. Messages were paced, validating, and emotionally attuned. Lower Rating: Questions were asked too quickly, too bluntly, or without sensitivity—resulting in a clinical or interrogative tone.</div>
+  <div class="rg" id="rg-sa23">
+  <button class="rb" onclick="rate('sa23',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa23',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa23',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa23',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa24">
+  <div class="item-num">24.</div>
+  <div class="item-label">Appropriately explained/answered questions about the safety assessment</div>
+  <div class="item-hint">Counselor provided brief, compassionate rationale when needed (e.g., "I ask everyone these questions to help me better support you.").</div>
+  <div class="rg" id="rg-sa24">
+  <button class="rb" onclick="rate('sa24',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa24',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa24',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa24',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa25">
+  <div class="item-num">25.</div>
+  <div class="item-label"><span class="crit-dot" title="Critical item"></span>Assessed for current safety or suicide in progress (Mandatory LL question)</div>
+  <div class="item-hint">"Have you taken any action to harm yourself or attempt suicide today or in the last few days?" Lower Rating: Counselor omitted exploration of safety entirely or did not follow up on vague disclosures.</div>
+  <div class="rg" id="rg-sa25">
+  <button class="rb" onclick="rate('sa25',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa25',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa25',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa25',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa26">
+  <div class="item-num">26.</div>
+  <div class="item-label"><span class="crit-dot" title="Critical item"></span>Assessed current suicidal ideation (Mandatory LL question)</div>
+  <div class="item-hint">"Have you had any thoughts of suicide in the past few days, including today?" Lower Rating: Counselor omitted exploration of ideation entirely or did not follow up on vague disclosures.</div>
+  <div class="rg" id="rg-sa26">
+  <button class="rb" onclick="rate('sa26',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa26',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa26',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa26',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-sa27" data-cond="si">
+  <div class="item-num">27.</div>
+  <div class="item-label">Assessed for plan (if suicidal ideation present)</div>
+  <div class="item-hint">Higher Rating: Counselor explored whether the visitor had a specific method/plan.</div>
+  <div class="rg" id="rg-sa27">
+  <button class="rb" onclick="rate('sa27',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa27',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa27',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa27',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-sa28" data-cond="si">
+  <div class="item-num">28.</div>
+  <div class="item-label">Assessed for suicide means (if suicidal ideation present)</div>
+  <div class="item-hint">Higher Rating: Counselor asked whether the visitor had access to what they would use, such as pills, weapons, etc.</div>
+  <div class="rg" id="rg-sa28">
+  <button class="rb" onclick="rate('sa28',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa28',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa28',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa28',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-sa29" data-cond="si">
+  <div class="item-num">29.</div>
+  <div class="item-label">Assessed for intent (if suicidal ideation present)</div>
+  <div class="item-hint">Higher Rating: Counselor assessed whether the visitor felt they would likely act on their plan or thoughts. Lower Rating: Counselor failed to clarify if the visitor was considering acting on the plan.</div>
+  <div class="rg" id="rg-sa29">
+  <button class="rb" onclick="rate('sa29',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa29',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa29',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa29',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-sa30" data-cond="si">
+  <div class="item-num">30.</div>
+  <div class="item-label">Assessed for timeline (if an intended means exists)</div>
+  <div class="item-hint">Higher Rating: Counselor asked when the visitor was considering taking action.</div>
+  <div class="rg" id="rg-sa30">
+  <button class="rb" onclick="rate('sa30',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa30',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa30',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa30',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa31">
+  <div class="item-num">31.</div>
+  <div class="item-label">A threat assessment was needed and was completed (homicidal ideation)</div>
+  <div class="item-hint">Higher Rating: Same ladder up, please include details in the other section as needed. Lower Rating: Visitor had vague language about harm to others, and no further exploration was conducted.</div>
+  <div class="rg" id="rg-sa31">
+  <button class="rb" onclick="rate('sa31',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa31',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa31',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa31',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa32">
+  <div class="item-num">32.</div>
+  <div class="item-label">Assessed disclosed NSSI (self-harm)</div>
+  <div class="item-hint">Higher Rating: Counselor asked about frequency, method, and purpose of NSSI (e.g., "How often do you self-harm?" / "Is it a coping strategy for you?"), and clarified whether suicidal intent was present. Lower Rating: Counselor acknowledged self-injury but did not explore depth, purpose, or link to suicidality.</div>
+  <div class="rg" id="rg-sa32">
+  <button class="rb" onclick="rate('sa32',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sa32',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sa32',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sa32',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sa33">
+  <div class="item-num">33.</div>
+  <div class="item-label">Third Party Situation, assessed person in crisis</div>
+  <div class="item-hint">Higher Rating: If visitor was reporting someone else at risk, counselor gathered all relevant information and asked the mandatories/ladder up as needed. Lower Rating: Counselor failed to gather details or did not follow protocol for the party at risk.</div>
+  <div class="rg" id="rg-sa33">
+  <button class="rb" onclick="rate('sa33',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('sa33',1,2,this)">1 — No</button>
+</div>
+</div><div class="item" id="iw-sa34">
+  <div class="item-num">34.</div>
+  <div class="item-label">Third Party Situation, assessed visitor</div>
+  <div class="item-hint">Higher Rating: If visitor was reporting someone else at risk, counselor gathered all relevant information and asked the mandatories/ladder up as needed. Lower Rating: Counselor failed to gather details or did not follow protocol for the direct visitor (asking the mandatories).</div>
+  <div class="rg" id="rg-sa34">
+  <button class="rb" onclick="rate('sa34',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('sa34',1,2,this)">1 — No</button>
+</div>
+</div>
+  
+  <div class="tog-row">
+    <span class="tog-lbl">Suicidal ideation (SI) was present / confirmed</span>
+    <div class="tog-sw">
+      <button class="tog-btn on-no" id="si-no" onclick="setSI(false)">No</button>
+      <button class="tog-btn" id="si-yes" onclick="setSI(true)">Yes</button>
+    </div>
+  </div>
+  <div class="tog-row">
+    <span class="tog-lbl">Imminent risk was present</span>
+    <div class="tog-sw">
+      <button class="tog-btn on-no" id="ir-no" onclick="setImminent(false)">No</button>
+      <button class="tog-btn" id="ir-yes" onclick="setImminent(true)">Yes</button>
+    </div>
+  </div>
+  <div class="tog-row">
+    <span class="tog-lbl">Rescue was initiated or should have been</span>
+    <div class="tog-sw">
+      <button class="tog-btn on-no" id="re-no" onclick="setRescue(false)">No</button>
+      <button class="tog-btn" id="re-yes" onclick="setRescue(true)">Yes</button>
+    </div>
+  </div>
+  <div class="notes-wrap">
+    <label class="fl">35. Other — Safety Assessment notes</label>
+    <textarea id="notes-sa" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec hidden" id="sec-ir">
+  <div class="sec-hdr">
+    <span class="sec-title">Imminent Risk Visitor</span>
+    <span class="badge badge-cond">imminent risk situations only</span>
+    <span class="pill badge" id="pill-ir"></span>
+  </div>
+  <div class="reveal">🔓 Unlocked — Imminent Risk toggled on in Safety Assessment</div>
+  <p class="sec-desc">Imminent Risk is the step of working collaboratively with a visitor who is at imminent risk to reduce their immediate risk of harm and ensure safety. This includes asking visitors to commit to staying safe during the conversation, distancing themselves from potential means, and assessing their ability and willingness to create a safety plan.</p>
+  <div class="item" id="iw-ir36">
+  <div class="item-num">36.</div>
+  <div class="item-label">Engaged the visitor in discussion of suicidal thoughts and behaviors</div>
+  <div class="item-hint">Higher Rating: Counselor explored risk openly and non-judgmentally, inviting conversation about ideation, plans, and feelings. Example: "I want to understand what you've been feeling lately—can we talk about the thoughts you've been having today?" Lower Ranking: Counselor deflected, minimized, or did not directly address the mandatory assessment regarding suicidal ideation.</div>
+  <div class="rg" id="rg-ir36">
+  <button class="rb" onclick="rate('ir36',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir36',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir36',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir36',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir37">
+  <div class="item-num">37.</div>
+  <div class="item-label">Assessed visitor's willingness and ability to take action to reduce risk</div>
+  <div class="item-hint">Higher Rating: Counselor asked directly if the visitor could collaborate on a plan to stay safe. Checked their comfort with different options (e.g., safety planning, voluntary rescue). Lower Ranking: Counselor missed or skipped opportunities to discuss how the visitor might help themselves stay safe.</div>
+  <div class="rg" id="rg-ir37">
+  <button class="rb" onclick="rate('ir37',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir37',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir37',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir37',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir38">
+  <div class="item-num">38.</div>
+  <div class="item-label">Asked the visitor to remove means/stay safe during the conversation</div>
+  <div class="item-hint">Higher Rating: Counselor helped the visitor distance themselves from harmful items identified by their choice of means. Lower Rating: Counselor did not explore means restriction or temporary distance from lethal methods.</div>
+  <div class="rg" id="rg-ir38">
+  <button class="rb" onclick="rate('ir38',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir38',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir38',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir38',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir39">
+  <div class="item-num">39.</div>
+  <div class="item-label">Identified least invasive intervention</div>
+  <div class="item-hint">Higher Rating: Counselor explored all collaborative options before moving toward emergency services. This includes phone calls, mobile crisis, or support persons. Lower Rating: Counselor moved too quickly to emergency services without first exploring other collaborative or less-intrusive safety options.</div>
+  <div class="rg" id="rg-ir39">
+  <button class="rb" onclick="rate('ir39',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir39',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir39',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir39',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir40">
+  <div class="item-num">40.</div>
+  <div class="item-label">Appropriately identified imminent risk situation</div>
+  <div class="item-hint">Higher Rating: All Five IR criteria were assessed (intent, plan, means, timeframe, buffers). The visitor was accurately identified as imminent risk, and shift-chat SBAR was posted in real-time. Lower Rating: Counselor missed a pattern of high-risk disclosures and did not initiate appropriate escalation. Used rescue as coercion or manipulation rather than a supportive intervention.</div>
+  <div class="rg" id="rg-ir40">
+  <button class="rb" onclick="rate('ir40',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir40',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir40',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir40',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir41">
+  <div class="item-num">41.</div>
+  <div class="item-label">Assessed suicidal desire (wanting to die)</div>
+  <div class="item-hint">Higher Rating: Counselor explored the visitor's emotional relationship to living and SI, including whether they are experiencing a wish to die, feeling hopeless, etc. Lower Ranking: Counselor failed to ask about the visitor's internal emotional state related to wanting to die.</div>
+  <div class="rg" id="rg-ir41">
+  <button class="rb" onclick="rate('ir41',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir41',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir41',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir41',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir42">
+  <div class="item-num">42.</div>
+  <div class="item-label">Assessed suicidal intent (intending on suicide)</div>
+  <div class="item-hint">Higher Rating: Counselor clarified if the visitor is planning to act on their suicidal ideation. Lower Rating: Counselor failed to ask about the visitor's plans or likelihood of taking action.</div>
+  <div class="rg" id="rg-ir42">
+  <button class="rb" onclick="rate('ir42',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir42',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir42',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir42',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir43">
+  <div class="item-num">43.</div>
+  <div class="item-label">Assessed suicidal capability (means, plan)</div>
+  <div class="item-hint">Higher Rating: Counselor asked about access to methods (e.g., pills, weapons), and readiness to use them: "Do you have what you'd use nearby?" Lower Rating: Counselor did not ask about access to means or the visitor's action to plan such ideations.</div>
+  <div class="rg" id="rg-ir43">
+  <button class="rb" onclick="rate('ir43',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir43',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir43',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir43',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-ir44">
+  <div class="item-num">44.</div>
+  <div class="item-label">Assessed risk factors and protective factors</div>
+  <div class="item-hint">Higher Rating: Counselor explored buffers like relationships, spiritual beliefs, responsibilities, or reasons for living. Lower Rating: Counselor did not ask about buffers, reasons for living, or connections that might reduce risk.</div>
+  <div class="rg" id="rg-ir44">
+  <button class="rb" onclick="rate('ir44',1,4,this)">1</button>
+  <button class="rb" onclick="rate('ir44',2,4,this)">2</button>
+  <button class="rb" onclick="rate('ir44',3,4,this)">3</button>
+  <button class="rb" onclick="rate('ir44',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">45. Other — Imminent Risk Visitor notes</label>
+    <textarea id="notes-ir" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec hidden" id="sec-re">
+  <div class="sec-hdr">
+    <span class="sec-title">Rescue</span>
+    <span class="badge badge-cond">rescue situations only</span>
+    <span class="pill badge" id="pill-re"></span>
+  </div>
+  <div class="reveal">🔓 Unlocked — Rescue toggled on in Safety Assessment</div>
+  <p class="sec-desc">Rescue involves actions undertaken by Center staff that are intended to ensure the safety of individuals at Imminent Risk or in the process of a suicide attempt. Note: This section only applies to a visitor that was involved in a rescue (emergency services sent out). All other conversations should be marked Not applicable to this interaction.</p>
+  <div class="item" id="iw-re46">
+  <div class="item-num">46.</div>
+  <div class="item-label">Attempted to initiate a collaborative active rescue</div>
+  <div class="item-hint">Higher Rating: Counselor respectfully introduced the idea of help and gave the visitor space to engage. Phrasing was invitational, not directive. Lower Rating: Counselor skipped opportunities to engage the visitor in the decision or moved straight to involuntary action without assessing collaborative options.</div>
+  <div class="rg" id="rg-re46">
+  <button class="rb" onclick="rate('re46',1,4,this)">1</button>
+  <button class="rb" onclick="rate('re46',2,4,this)">2</button>
+  <button class="rb" onclick="rate('re46',3,4,this)">3</button>
+  <button class="rb" onclick="rate('re46',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-re47">
+  <div class="item-num">47.</div>
+  <div class="item-label">Worked collaboratively with the visitor to complete the intervention</div>
+  <div class="item-hint">Higher Rating: Counselor explored voluntary rescue options first (mobile crisis, going to the ER, calling 911 themselves) before moving to involuntary measures. They explained what would happen, what to expect, and involved the visitor whenever safe to do so. Lower Rating: Visitor may have been confused, surprised, or left out of key steps. Counselor's tone or language was overly clinical or abrupt.</div>
+  <div class="rg" id="rg-re47">
+  <button class="rb" onclick="rate('re47',1,4,this)">1</button>
+  <button class="rb" onclick="rate('re47',2,4,this)">2</button>
+  <button class="rb" onclick="rate('re47',3,4,this)">3</button>
+  <button class="rb" onclick="rate('re47',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-re48">
+  <div class="item-num">48.</div>
+  <div class="item-label">Supported chatter during rescue process</div>
+  <div class="item-hint">Higher Rating: Counselor remained emotionally present throughout, validating fears and offering reassurance. Lower Rating: Counselor "went cold" or became minimally responsive once the decision to rescue was made, leaving the visitor feeling unsupported during a critical moment.</div>
+  <div class="rg" id="rg-re48">
+  <button class="rb" onclick="rate('re48',1,4,this)">1</button>
+  <button class="rb" onclick="rate('re48',2,4,this)">2</button>
+  <button class="rb" onclick="rate('re48',3,4,this)">3</button>
+  <button class="rb" onclick="rate('re48',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-re49">
+  <div class="item-num">49.</div>
+  <div class="item-label">Offered chatter a follow-up (for after the rescue)</div>
+  <div class="item-hint">Higher Rating: Counselor discussed next steps and offered additional support: "We'd love to check in on you in a few days—would that be okay?" Lower Rating: Counselor did not discuss post-rescue contact even when suicidal ideation was present.</div>
+  <div class="rg" id="rg-re49">
+  <button class="rb" onclick="rate('re49',1,4,this)">1</button>
+  <button class="rb" onclick="rate('re49',2,4,this)">2</button>
+  <button class="rb" onclick="rate('re49',3,4,this)">3</button>
+  <button class="rb" onclick="rate('re49',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">50. Other — Rescue notes</label>
+    <textarea id="notes-re" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <span class="sec-title">Collaborative Problem-Solving</span>
+    
+    <span class="pill badge" id="pill-cp"></span>
+  </div>
+  
+  <p class="sec-desc">Collaborative problem solving allows chat visitors to work together with counselors to create an attainable plan for what the chat visitor might do after the conversation. These actions may include (but are not limited to): identifying precipitating events that led to the chat, exploring how a chat visitor has already attempted to solve the problem, or brainstorming with the chat visitor on alternative ways of coping. Counselors should take care to avoid taking responsibility for fixing the chat visitor's problem.</p>
+  <div class="item" id="iw-cp51">
+  <div class="item-num">51.</div>
+  <div class="item-label">Avoided taking responsibility to fix the problem</div>
+  <div class="item-hint">Higher Rating: Counselor used language like "What do you think might help next?" or "What's worked for you before?" rather than giving direct advice or instructions. Lower Rating: Counselor gave advice, instructions, or solutions without involving the visitor. May have said things like "You should just…" or "What you need to do is…"</div>
+  <div class="rg" id="rg-cp51">
+  <button class="rb" onclick="rate('cp51',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp51',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp51',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp51',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-cp52">
+  <div class="item-num">52.</div>
+  <div class="item-label">Helped visitor identify and prioritize problems, needs, and wants</div>
+  <div class="item-hint">Higher Rating: Counselor actively listened and reflected back the visitor's narrative, helping them make sense of what they shared. Rather than listing problems, the counselor supported the visitor in piecing together key themes or areas of concern. Lower Rating: The conversation remained general or scattered. Counselor did not help the visitor focus in on what felt most important or actionable.</div>
+  <div class="rg" id="rg-cp52">
+  <button class="rb" onclick="rate('cp52',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp52',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp52',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp52',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-cp53">
+  <div class="item-num">53.</div>
+  <div class="item-label">Worked with the visitor to create a plan that will work for them</div>
+  <div class="item-hint">Higher Rating: Plan was tailored to the visitor's unique circumstances, resources, and preferences—not a generic suggestion. Counselor checked in along the way: "How does that sound to you?" or "Would that feel something you can do?" Lower Rating: Plan may have felt one-sided, unrealistic, or disconnected from the visitor's actual life or concerns.</div>
+  <div class="rg" id="rg-cp53">
+  <button class="rb" onclick="rate('cp53',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp53',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp53',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp53',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-cp54">
+  <div class="item-num">54.</div>
+  <div class="item-label">Explored what the visitor has tried to do to solve the problem</div>
+  <div class="item-hint">Higher Rating: Counselor asked about past efforts—what's helped, what hasn't, and why. This builds self-awareness and avoids repeating strategies that weren't effective. Lower Rating: Counselor missed the chance to validate prior efforts or build on what the visitor already knows about themselves.</div>
+  <div class="rg" id="rg-cp54">
+  <button class="rb" onclick="rate('cp54',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp54',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp54',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp54',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-cp55">
+  <div class="item-num">55.</div>
+  <div class="item-label">Explored alternatives</div>
+  <div class="item-hint">Higher Rating: Counselor offered gentle suggestions or brainstormed options with the visitor—without judgment or pressure. "Would you like to explore some other options together?" Lower Rating: Counselor did not explore what would benefit the visitor through open dialogue.</div>
+  <div class="rg" id="rg-cp55">
+  <button class="rb" onclick="rate('cp55',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp55',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp55',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp55',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-cp56">
+  <div class="item-num">56.</div>
+  <div class="item-label">Appropriately handled offering referrals and resources</div>
+  <div class="item-hint">Higher Rating: Counselor checked in about what kind of support the visitor is open to, and explained referrals clearly. Visitor was part of the decision. Lower Rating: Resources were suggested without collaboration or clarity, or weren't explained in a helpful way.</div>
+  <div class="rg" id="rg-cp56">
+  <button class="rb" onclick="rate('cp56',1,4,this)">1</button>
+  <button class="rb" onclick="rate('cp56',2,4,this)">2</button>
+  <button class="rb" onclick="rate('cp56',3,4,this)">3</button>
+  <button class="rb" onclick="rate('cp56',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">57. Other — Collaborative Problem-Solving notes</label>
+    <textarea id="notes-cp" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec hidden" id="sec-sp">
+  <div class="sec-hdr">
+    <span class="sec-title">Safety Planning</span>
+    <span class="badge badge-auto">revealed when SI is present</span>
+    <span class="pill badge" id="pill-sp"></span>
+  </div>
+  <div class="reveal">🔓 Unlocked — SI confirmed in Safety Assessment</div>
+  <p class="sec-desc">Safety planning is the first intervention that needs to be done once the immediate threat of suicide has passed. A Safety Plan uses Four Core Principles identified in the Lifeline Risk Assessment: Desire, Intent, Capability, and Buffers. This section is specifically related to planning aimed at reducing suicide or NSSI risk.</p>
+  <div class="item" id="iw-sp58">
+  <div class="item-num">58.</div>
+  <div class="item-label"><span class="crit-dot" title="Critical item"></span>Collaboratively created a safety plan with visitor</div>
+  <div class="item-hint">Higher Rating: It is within policy, all visitors with identified suicidal ideation must be offered a safety plan. Counselor invited the visitor to participate in building the plan. Plan wasn't imposed or generic. Lower Rating: No safety plan completed. Risk was present but the counselor moved on or ended the conversation without creating/offering a safety plan (submit a QIR).</div>
+  <div class="rg" id="rg-sp58">
+  <button class="rb" onclick="rate('sp58',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp58',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp58',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp58',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sp59">
+  <div class="item-num">59.</div>
+  <div class="item-label">Identified coping skills</div>
+  <div class="item-hint">Higher Rating: Helpful strategies were discussed that the visitor can use when distressed (e.g., breathing exercises, distraction, talking to a friend, etc). Avoided vague phrasing, and again should be explorative, not imposed. Lower Rating: Counselor did not explore what the visitor could do in the moment to stay safe or self-regulate. Safety plan lacks immediate, actionable options.</div>
+  <div class="rg" id="rg-sp59">
+  <button class="rb" onclick="rate('sp59',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp59',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp59',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp59',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sp60">
+  <div class="item-num">60.</div>
+  <div class="item-label">Explored buffers</div>
+  <div class="item-hint">Higher Rating: The counselor asked about protective factors, such as supportive relationships, reasons for living, responsibilities, or sources of hope, which were tied back into the safety plan. Lower Rating: Protective factors were not discussed, leaving the plan without key internal motivators.</div>
+  <div class="rg" id="rg-sp60">
+  <button class="rb" onclick="rate('sp60',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp60',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp60',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp60',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sp61">
+  <div class="item-num">61.</div>
+  <div class="item-label">Collaboratively explored means restriction</div>
+  <div class="item-hint">Higher Rating: The counselor asked about access to means (e.g., pills, weapons, sharp objects) and worked with the visitor on a nonjudgmental plan to reduce access. The language was invitational. Lower Rating: Access to potentially lethal means was not explored, or the conversation avoided the topic altogether.</div>
+  <div class="rg" id="rg-sp61">
+  <button class="rb" onclick="rate('sp61',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp61',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp61',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp61',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sp62">
+  <div class="item-num">62.</div>
+  <div class="item-label">Appropriately handled offering referrals</div>
+  <div class="item-hint">Higher Rating: Counselor introduced referrals as options, not directives, and checked in with the visitor about their preferences and comfort level. Referrals were explained clearly, and the visitor was given space to choose what works for them. Lower Rating: Counselor either didn't offer resources when appropriate or offered them too quickly or generically.</div>
+  <div class="rg" id="rg-sp62">
+  <button class="rb" onclick="rate('sp62',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp62',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp62',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp62',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-sp63">
+  <div class="item-num">63.</div>
+  <div class="item-label">Incorporated least invasive intervention</div>
+  <div class="item-hint">Higher Rating: Counselor respected the visitor's autonomy and risk level. Counselor sought the safest plan that required the least external intervention possible. Lower Rating: The response was either too minimal or too extreme given the visitor's situation.</div>
+  <div class="rg" id="rg-sp63">
+  <button class="rb" onclick="rate('sp63',1,4,this)">1</button>
+  <button class="rb" onclick="rate('sp63',2,4,this)">2</button>
+  <button class="rb" onclick="rate('sp63',3,4,this)">3</button>
+  <button class="rb" onclick="rate('sp63',4,4,this)">4</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">64. Other — Safety Planning notes</label>
+    <textarea id="notes-sp" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">
+    <span class="sec-title">Wrapping Up</span>
+    <span class="badge badge-crit">contains critical items</span>
+    <span class="pill badge" id="pill-wu"></span>
+  </div>
+  
+  <p class="sec-desc">Wrapping things up with visitors can sometimes be difficult. Some skills to wrap up calls in a compassionate and collaborative way include (but are not limited to): summarizing and checking-in, validating, contextualizing, empowering, and encouraging. Counselors should plant the seed in the chat visitor's mind that the chat is going to come to an end soon and move to a close.</p>
+  <div class="item" id="iw-wu65">
+  <div class="item-num">65.</div>
+  <div class="item-label">Appropriately paced the conversation</div>
+  <div class="item-hint">Higher Rating: The counselor gradually moved toward closing. They gave cues like "Before we wrap up..." or "As we're coming to the end of our chat..." to prepare the visitor. The conversation did not feel abrupt or rushed. Lower Rating: Chat was too long, better pacing could have expedited the conversation. Chat was rushed or too short.</div>
+  <div class="rg" id="rg-wu65">
+  <button class="rb" onclick="rate('wu65',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu65',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu65',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu65',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-wu66" data-cond="si">
+  <div class="item-num">66.</div>
+  <div class="item-label"><span class="crit-dot" title="Critical item"></span>Re-assessed visitor for suicide risk (if indicated earlier in the conversation)</div>
+  <div class="item-hint">Higher Rating: If the visitor disclosed suicidal ideation during safety assessment, the counselor followed up with a gentle check-in before ending the chat, e.g., "Just before we close, I want to check how you're feeling now." Lower Rating: Counselor failed to check back in with the visitor about safety despite previous ideation, missing a crucial closing step (submit a QIR).</div>
+  <div class="rg" id="rg-wu66">
+  <button class="rb" onclick="rate('wu66',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu66',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu66',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu66',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-wu67">
+  <div class="item-num">67.</div>
+  <div class="item-label">Reviewed key points of contact and chat visitor's needs</div>
+  <div class="item-hint">Higher Rating: The counselor summarized what was discussed (e.g., narrative, safety plan). This helps the visitor feel heard and reinforces key takeaways. Lower Rating: Did not review key points of contact and chat visitor's needs. No summarization or reinforcement of helpful content discussed during the chat.</div>
+  <div class="rg" id="rg-wu67">
+  <button class="rb" onclick="rate('wu67',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu67',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu67',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu67',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-wu68">
+  <div class="item-num">68.</div>
+  <div class="item-label">Reviewed next steps following call</div>
+  <div class="item-hint">Higher Rating: The counselor confirmed what the visitor plans to do next. Lower Rating: The counselor did not check in about the visitor's plan post-conversation.</div>
+  <div class="rg" id="rg-wu68">
+  <button class="rb" onclick="rate('wu68',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu68',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu68',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu68',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-wu69">
+  <div class="item-num">69.</div>
+  <div class="item-label">Reminded visitor of 24/7 chat availability</div>
+  <div class="item-hint">Higher Rating: Counselor clearly stated that we are always available: "You can reach out again any time—we're here 24/7."</div>
+  <div class="rg" id="rg-wu69">
+  <button class="rb" onclick="rate('wu69',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu69',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu69',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu69',4,4,this)">4</button>
+</div>
+</div><div class="item" id="iw-wu70">
+  <div class="item-num">70.</div>
+  <div class="item-label">Warmly and appropriately ended the conversation</div>
+  <div class="item-hint">Higher Rating: Closure included a caring, validating final message (e.g., "I'm really glad you reached out.") Tone was supportive and human, not robotic/scripted. Lower Rating: Inappropriately closed the conversation (e.g., abruptly, after person said they were not suicidal, etc.).</div>
+  <div class="rg" id="rg-wu70">
+  <button class="rb" onclick="rate('wu70',1,4,this)">1</button>
+  <button class="rb" onclick="rate('wu70',2,4,this)">2</button>
+  <button class="rb" onclick="rate('wu70',3,4,this)">3</button>
+  <button class="rb" onclick="rate('wu70',4,4,this)">4</button>
+</div>
+</div><div class="item hidden" id="iw-wu71" data-cond="si">
+  <div class="item-num">71.</div>
+  <div class="item-label"><span class="crit-dot" title="Critical item"></span>Follow-up offered if SI was present</div>
+  <div class="item-hint">If suicidal ideation was confirmed, the counselor offered follow-ups in line with center policy. If counselor did not, submit a QIR. 2-Point Scale: 2 – Yes: The action was clearly completed. 1 – No: The action was not completed.</div>
+  <div class="rg" id="rg-wu71">
+  <button class="rb" onclick="rate('wu71',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('wu71',1,2,this)">1 — No</button>
+</div>
+</div><div class="item hidden" id="iw-wu72" data-cond="si">
+  <div class="item-num">72.</div>
+  <div class="item-label">(If f/u is accepted) Confirmed confidentiality details for follow-up calls</div>
+  <div class="item-hint">Higher Rating: Counselor clarified preferences (e.g., "Is it okay to leave a voicemail if we don't reach you?" and "Are we permitted to speak with a third party if someone else answers the phone?"). 2-Point Scale.</div>
+  <div class="rg" id="rg-wu72">
+  <button class="rb" onclick="rate('wu72',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('wu72',1,2,this)">1 — No</button>
+</div>
+</div><div class="item hidden" id="iw-wu73" data-cond="si">
+  <div class="item-num">73.</div>
+  <div class="item-label">(If f/u is accepted) Confirmed time and dates and timezones for follow-up calls</div>
+  <div class="item-hint">Higher Rating: Visitor's availability was confirmed, including their time zone to prevent confusion. 2-Point Scale.</div>
+  <div class="rg" id="rg-wu73">
+  <button class="rb" onclick="rate('wu73',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('wu73',1,2,this)">1 — No</button>
+</div>
+</div><div class="item hidden" id="iw-wu74" data-cond="si">
+  <div class="item-num">74.</div>
+  <div class="item-label">(If f/u is accepted) Scheduled 2 calls in the appropriate time frame (within 72 hours of the initial call, and again 1 week later)</div>
+  <div class="item-hint">2-Point Scale: 2 – Yes: The action was clearly completed. 1 – No: The action was not completed.</div>
+  <div class="rg" id="rg-wu74">
+  <button class="rb" onclick="rate('wu74',2,2,this)">2 — Yes</button>
+  <button class="rb" onclick="rate('wu74',1,2,this)">1 — No</button>
+</div>
+</div>
+  
+  <div class="notes-wrap">
+    <label class="fl">75. Other — Wrapping Up notes</label>
+    <textarea id="notes-wu" placeholder="Strengths observed, areas for growth, specific examples…"></textarea>
+  </div>
+</div>
+
+<div id="summary-container" style="margin-bottom:1rem"></div>
+</div>
+
+<div class="sp">
+  <div class="sp-inner">
+    <div class="sp-row">
+      <div>
+        <div class="sp-num" id="score-display">—</div>
+        <div class="sp-lbl">overall score</div>
+      </div>
+      <div class="sp-bar-wrap">
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="score-bar"></div></div>
+        <div class="sp-meta" id="score-meta">No items scored yet</div>
+      </div>
+    </div>
+    <div class="flags-wrap" id="flags-panel"></div>
+    <button class="sub-btn" onclick="handleSubmit()">Generate Submission Summary ↗</button>
+  </div>
+</div>
+
+<script>
+const PTS4 = {1:40,2:60,3:85,4:100};
+const PTS2 = {1:1,2:100};
+const scores = {};
+const flags = {si:false,imminent:false,rescue:false};
+
+const CRITICAL_IDS = ['sa25','sa26','sp58','wu66','wu71'];
+const SEC_MAP = {
+  ae:['ae5','ae6','ae7','ae8','ae9','ae10','ae11','ae12','ae13'],
+  ex:['ex15','ex16','ex17','ex18','ex19'],
+  sa:['sa21','sa22','sa23','sa24','sa25','sa26','sa27','sa28','sa29','sa30','sa31','sa32','sa33','sa34'],
+  ir:['ir36','ir37','ir38','ir39','ir40','ir41','ir42','ir43','ir44'],
+  re:['re46','re47','re48','re49'],
+  cp:['cp51','cp52','cp53','cp54','cp55','cp56'],
+  sp:['sp58','sp59','sp60','sp61','sp62','sp63'],
+  wu:['wu65','wu66','wu67','wu68','wu69','wu70','wu71','wu72','wu73','wu74']
+};
+const SEC_NAMES = {ae:'Active Engagement',ex:'Exploring the Situation',sa:'Safety Assessment',ir:'Imminent Risk',re:'Rescue',cp:'Collaborative Problem-Solving',sp:'Safety Planning',wu:'Wrap-Up'};
+const ITEM_SCALE = {sa33:2,sa34:2,wu71:2,wu72:2,wu73:2,wu74:2};
+
+function rate(id, val, scale, btn) {
+  const group = btn.parentElement;
+  const cls = scale===4 ? 's'+val : (val===2?'sy':'sn');
+  const alreadySel = btn.classList.contains(cls);
+  group.querySelectorAll('.rb').forEach(b => b.className='rb');
+  if (alreadySel) { delete scores[id]; }
+  else {
+    btn.className = 'rb '+cls;
+    const pts = scale===4 ? PTS4[val] : PTS2[val];
+    scores[id] = {val, pts, critical: CRITICAL_IDS.includes(id), label: btn.closest('.item').querySelector('.item-label').textContent.trim()};
+    // find section key
+    for (const [sk, ids] of Object.entries(SEC_MAP)) { if (ids.includes(id)) { scores[id].sk = sk; break; } }
+  }
+  updateScore();
+  updatePill(scores[id]?.sk || Object.entries(SEC_MAP).find(([,ids])=>ids.includes(id))?.[0]);
+}
+
+function isVisible(id) {
+  const w = document.getElementById('iw-'+id);
+  return w && !w.classList.contains('hidden');
+}
+
+function getActive() {
+  return Object.entries(scores).filter(([id])=>isVisible(id)).map(([,s])=>s);
+}
+
+function updateScore() {
+  const active = getActive();
+  const disp = document.getElementById('score-display');
+  const bar = document.getElementById('score-bar');
+  const meta = document.getElementById('score-meta');
+  const panel = document.getElementById('flags-panel');
+  if (!active.length) { disp.textContent='—'; bar.style.width='0%'; meta.textContent='No items scored yet'; panel.innerHTML=''; return; }
+  const avg = Math.round(active.reduce((s,x)=>s+x.pts,0)/active.length*10)/10;
+  disp.textContent = avg.toFixed(1);
+  bar.style.width = avg+'%';
+  bar.style.background = avg>=80?'#A4CB7B':avg>=65?'#F4DD56':'#E24B4A';
+  meta.textContent = active.length+' item'+(active.length!==1?'s':'')+' scored · avg '+avg.toFixed(1)+' pts';
+  panel.innerHTML='';
+  Object.entries(scores).forEach(([id,s]) => {
+    if (!s.critical || !isVisible(id) || s.pts>40) return;
+    const d=document.createElement('div'); d.className='flag-item';
+    d.innerHTML='&#9651; Critical item scored low: '+s.label;
+    panel.appendChild(d);
+  });
+}
+
+function updatePill(sk) {
+  if (!sk) return;
+  const pill = document.getElementById('pill-'+sk);
+  if (!pill) return;
+  const ids = SEC_MAP[sk]||[];
+  const active = ids.filter(id=>scores[id]&&isVisible(id)).map(id=>scores[id]);
+  if (!active.length) { pill.style.display='none'; return; }
+  const avg = Math.round(active.reduce((s,x)=>s+x.pts,0)/active.length*10)/10;
+  pill.style.display='inline-block';
+  pill.textContent=avg.toFixed(1)+' pts';
+  pill.style.background=avg>=80?'#eaf5e4':avg>=65?'#FFF5E0':'#FFEBEB';
+  pill.style.color=avg>=80?'#27500A':avg>=65?'#633806':'#791F1F';
+}
+
+function setSI(val) {
+  flags.si=val;
+  document.getElementById('si-yes').className='tog-btn'+(val?' on-yes':'');
+  document.getElementById('si-no').className='tog-btn'+(!val?' on-no':'');
+  document.getElementById('sec-sp').classList.toggle('hidden',!val);
+  document.querySelectorAll('[data-cond="si"]').forEach(el=>el.classList.toggle('hidden',!val));
+  updateScore(); ['sa','sp','wu'].forEach(updatePill);
+}
+function setImminent(val) {
+  flags.imminent=val;
+  document.getElementById('ir-yes').className='tog-btn'+(val?' on-yes':'');
+  document.getElementById('ir-no').className='tog-btn'+(!val?' on-no':'');
+  document.getElementById('sec-ir').classList.toggle('hidden',!val);
+  updateScore(); updatePill('ir');
+}
+function setRescue(val) {
+  flags.rescue=val;
+  document.getElementById('re-yes').className='tog-btn'+(val?' on-yes':'');
+  document.getElementById('re-no').className='tog-btn'+(!val?' on-no':'');
+  document.getElementById('sec-re').classList.toggle('hidden',!val);
+  updateScore(); updatePill('re');
+}
+
+function handleSubmit() {
+  const active = getActive();
+  if (!active.length) { alert('Please score at least one item before submitting.'); return; }
+  const avg = Math.round(active.reduce((s,x)=>s+x.pts,0)/active.length*10)/10;
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  const secScores={};
+  Object.keys(SEC_NAMES).forEach(sk=>{
+    const items=active.filter(x=>x.sk===sk);
+    if(items.length) secScores[sk]=Math.round(items.reduce((s,x)=>s+x.pts,0)/items.length*10)/10;
+  });
+  const critFlags=Object.entries(scores).filter(([id,s])=>s.critical&&isVisible(id)&&s.pts<=40).map(([,s])=>s.label);
+  const noteFields={'Active Engagement':document.getElementById('notes-ae').value,'Exploring the Situation':document.getElementById('notes-ex').value,'Safety Assessment':document.getElementById('notes-sa').value,'Imminent Risk':document.getElementById('notes-ir').value,'Rescue':document.getElementById('notes-re').value,'Collaborative Problem-Solving':document.getElementById('notes-cp').value,'Safety Planning':document.getElementById('notes-sp').value,'Wrap-Up':document.getElementById('notes-wu').value};
+  const metaData={'Interaction ID':document.getElementById('interaction-id').value||'(not entered)','Counselor Name':document.getElementById('counselor-name').value||'(not entered)','Supervisor Name':document.getElementById('supervisor-name').value||'(not entered)','Evaluation Type':document.getElementById('eval-type').value,'Submission Date':dateStr,'SI Present':flags.si?'Yes':'No','Imminent Risk':flags.imminent?'Yes':'No','Rescue Initiated':flags.rescue?'Yes':'No','Overall Score':avg.toFixed(1),'Total Items Scored':String(active.length),'Critical Items Flagged':critFlags.length?critFlags.join('; '):'None'};
+  const container=document.getElementById('summary-container');
+  container.innerHTML='';
+  const panel=document.createElement('div'); panel.className='summary';
+  const h3=document.createElement('h3'); h3.textContent='Submission Summary'; panel.appendChild(h3);
+  function addHead(t){const h=document.createElement('div');h.className='sum-head';h.textContent=t;panel.appendChild(h);}
+  function addRow(k,v,cls){const row=document.createElement('div');row.className='sum-row';const key=document.createElement('span');key.className='sum-key';key.textContent=k;const val=document.createElement('span');val.className='sum-val'+(cls?' '+cls:'');val.textContent=v;row.appendChild(key);row.appendChild(val);panel.appendChild(row);}
+  function sc(n){return n>=80?'sh':n>=65?'sm':'sl';}
+  addHead('Evaluation Details');
+  Object.entries(metaData).forEach(([k,v])=>addRow(k,v,k==='Overall Score'?sc(avg):''));
+  addHead('Section Scores');
+  Object.entries(secScores).forEach(([sk,pts])=>addRow(SEC_NAMES[sk],pts.toFixed(1)+' pts',sc(pts)));
+  const notesEntries=Object.entries(noteFields).filter(([,v])=>v.trim());
+  if(notesEntries.length){addHead('Notes');notesEntries.forEach(([k,v])=>addRow(k,v));}
+  const acts=document.createElement('div');acts.className='act';
+  const ok=document.createElement('div');ok.className='ok-msg';
+  const copyBtn=document.createElement('button');copyBtn.className='copy-btn';copyBtn.textContent='Copy to clipboard';
+  copyBtn.onclick=()=>{
+    const lines=[];
+    Object.entries(metaData).forEach(([k,v])=>lines.push(k+'\t'+v));
+    lines.push('','SECTION SCORES');
+    Object.entries(secScores).forEach(([sk,pts])=>lines.push(SEC_NAMES[sk]+'\t'+pts.toFixed(1)));
+    if(notesEntries.length){lines.push('','NOTES');notesEntries.forEach(([k,v])=>lines.push(k+'\t'+v));}
+    navigator.clipboard.writeText(lines.join('\n')).then(()=>{ok.textContent='Copied! Paste into SharePoint or Excel.';setTimeout(()=>{ok.textContent='';},3000);});
+  };
+  const csvBtn=document.createElement('button');csvBtn.className='csv-btn';csvBtn.textContent='Download CSV';
+  csvBtn.onclick=()=>{
+    const e=v=>'"'+String(v).replace(/"/g,'""')+'"';
+    const rows=[];
+    rows.push([e('Field'),e('Value')].join(','));
+    Object.entries(metaData).forEach(([k,v])=>rows.push([e(k),e(v)].join(',')));
+    rows.push('');
+    rows.push([e('Section'),e('Avg Score')].join(','));
+    Object.entries(secScores).forEach(([sk,pts])=>rows.push([e(SEC_NAMES[sk]),e(pts.toFixed(1))].join(',')));
+    rows.push('');
+    rows.push([e('Section'),e('Item'),e('Raw Score'),e('Point Value')].join(','));
+    active.forEach(s=>rows.push([e(SEC_NAMES[s.sk]||''),e(s.label),e(s.val),e(s.pts)].join(',')));
+    rows.push('');
+    rows.push([e('Notes Section'),e('Notes')].join(','));
+    Object.entries(noteFields).forEach(([k,v])=>{if(v.trim())rows.push([e(k),e(v)].join(','));});
+    const blob=new Blob([rows.join('\n')],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    const c=(document.getElementById('counselor-name').value||'counselor').replace(/\s+/g,'_');
+    const id=(document.getElementById('interaction-id').value||'eval').replace(/\s+/g,'_');
+    a.href=url;a.download='QI_'+c+'_'+id+'.csv';a.click();URL.revokeObjectURL(url);
+  };
+  acts.appendChild(copyBtn);acts.appendChild(csvBtn);panel.appendChild(acts);panel.appendChild(ok);
+  container.appendChild(panel);
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
